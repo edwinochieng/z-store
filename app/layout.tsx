@@ -9,7 +9,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <head />
-      <body>
+      <body className='max-w-[1920px] w-full px-4 md:px-12 lg:px-16'>
         <Navbar />
         <div>{children}</div>
       </body>
