@@ -1,8 +1,8 @@
 import Navbar from "@/components/navbar/Navbar";
 import "./globals.css";
-import { Quicksand } from "@next/font/google";
+import { Inter } from "@next/font/google";
 
-const quicksand = Quicksand({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -13,7 +13,7 @@ export default function RootLayout({
     <html lang='en'>
       <head />
       <body
-        className={`max-w-[1920px] w-full px-4 md:px-12 lg:px-16 ${quicksand.className}`}
+        className={`max-w-[1920px] w-full px-4 md:px-12 lg:px-16 ${inter.className}`}
       >
         <Navbar />
         <div>{children}</div>
