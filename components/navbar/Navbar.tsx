@@ -8,12 +8,12 @@ import Link from "next/link";
 import useStore from "@/store/store";
 
 export default function Navbar() {
-  const quantity = useStore((state) => state.quantity);
+  const cart = useStore((state) => state.cartItems);
   const [cartItemsCount, setCartItemsCount] = useState<number>(0);
 
   useEffect(() => {
-    setCartItemsCount(quantity);
-  }, [quantity]);
+    setCartItemsCount(cart.reduce((a, c) => a + c.quantity, 0));
+  }, [cart]);
 
   return (
     <div className='bg-transparent'>
