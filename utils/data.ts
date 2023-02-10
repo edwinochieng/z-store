@@ -1,9 +1,10 @@
 export interface Products {
-id:number
+
 name:string
 price:number
 image:string
 category:string
+description:string
 }
 
 interface Categories {
@@ -47,374 +48,432 @@ export const categories:Categories[] = [
 
 export const products:Products[] = [
 {
-    id: 0,
-    name:'Accessory',
-    price:17,
+   
+    name:'Warm Beanie Hat Knitted Marvin Hat With Fleece Lining',
+    price:10,
     image:'/images/products/accessory1.jpg',
     category:'accessories', 
+    description:'Keep your head and ears warm with our Warm Beanie Hat. This double layer beanie is perfect for keeping the chill away on those cold hiking days and mountain ascents. It is made out of soft acrylic yarn that feels nice and warm to the touch, and a fleece lining to keep you comfy and cozy. And, thanks to its one-size-fits-all design, this beanie will fit both kids and adults alike. Its a hat that will work just as well for young fashionistas as it will for their parents.'
 },
 {
-    id: 1,
-    name:'Accessory',
-    price:17,
+ 
+    name:'Cap',
+    price:8,
     image:'/images/products/accessory2.jpg',
     category:'accessories', 
+    description:'Keep your head and ears warm with our Warm Beanie Hat. This double layer beanie is perfect for keeping the chill away on those cold hiking days and mountain ascents. It is made out of soft acrylic yarn that feels nice and warm to the touch, and a fleece lining to keep you comfy and cozy. And, thanks to its one-size-fits-all design, this beanie will fit both kids and adults alike. Its a hat that will work just as well for young fashionistas as it will for their parents.'
 },
 {
-    id: 2,
-    name:'Accessory',
-    price:17,
+    
+    name:'Hat Marvin Beanie Skull Caps',
+    price:2,
     image:'/images/products/accessory3.jpg',
     category:'accessories', 
+    description:'Keep your head and ears warm with our Warm Beanie Hat. This double layer beanie is perfect for keeping the chill away on those cold hiking days and mountain ascents. It is made out of soft acrylic yarn that feels nice and warm to the touch, and a fleece lining to keep you comfy and cozy. And, thanks to its one-size-fits-all design, this beanie will fit both kids and adults alike. Its a hat that will work just as well for young fashionistas as it will for their parents.'
 },
 {
-    id: 3,
-    name:'Accessory',
-    price:17,
+    
+    name:'Wide Brim Straw Sun Hat',
+    price:18,
     image:'/images/products/accessory4.jpg',
     category:'accessories', 
+    description:'Foldable and crushable, easy to pack and carry in a handbag or backpack. Great for beach, boating, vacation, park or pool, fishing, hiking, camping, gardening, tourism, weekend getaway, honeymoon or any other outdoor activities. You will received lot of compliments.'
 },
 {
-    id: 4,
-    name:'Accessory',
+    
+    name:'Women Fashion Simple Faux Pearl Necklace',
     price:17,
     image:'/images/products/accessory5.jpg',
     category:'accessories', 
+    description:'A perfect accessory, also a good gift to your friends.It will make you beautiful and it is suitable for any season'
 },
 {
-    id: 5,
-    name:'Accessory',
-    price:17,
+    
+    name:'Fashion 5Pcs Boho Rings Imitation Pearls Curved Shape Silver',
+    price:5,
     image:'/images/products/accessory6.jpg',
     category:'accessories', 
+    description:'In a faux pearl and wavy design, this ring set stands out as a creative, cute and popular addition to your outfit. With their stackable design, these rings will suit your aesthetic needs. Thanks to their fine workmanship, they have bright and long-lasting colours'
 },
 {
-    id: 6,
-    name:'Bag',
-    price:17,
+    
+    name:'Designer Messenger Bag',
+    price:25,
     image:'/images/products/bag1.jpg',
     category:'bags', 
+    description:'A stylish bag for one with class and style perfect for your laptop and note books'
 },
 {
-    id: 7,
-    name:'Bag',
-    price:17,
+    
+    name:'Single strap Backpack',
+    price:37,
     image:'/images/products/bag2.jpg',
     category:'bags', 
+    description:'This backpack includes a main compartment, plenty of external pockets and attachment points, providing enough space for everything needed in your trip. It is water resistant, breathable and comfortable. perfect for travelers, campers, backpackers, cyclists.'
 },
 {
-    id: 8,
-    name:'Bag',
-    price:17,
+    
+    name:'Lightweight Backpack',
+    price:15,
     image:'/images/products/bag3.jpg',
     category:'bags', 
+    description:'This backpack with 20L capacity includes a main compartment, plenty of external pockets and attachment points, providing enough space for everything needed in your trip. It is water resistant, breathable and comfortable. perfect for travelers, campers, backpackers, cyclists.'
 },
 {
-    id: 9,
-    name:'Bag',
-    price:17,
+    
+    name:'Fashion Lightweight Portable Foldable Backpack',
+    price:15,
     image:'/images/products/bag4.jpg',
     category:'bags', 
+    description:'This backpack with 20L capacity includes a main compartment, plenty of external pockets and attachment points, providing enough space for everything needed in your trip. It is water resistant, breathable and comfortable. perfect for travelers, campers, backpackers, cyclists.'
 },
 {
-    id: 10,
-    name:'Jacket',
-    price:17,
+    
+    name:'Designer jacket coat',
+    price:45,
     image:'/images/products/jacket1.jpg',
-    category:'jackets', 
+    category:'jackets',
+    description:'Filled with breathable ultra-light recycled material, made of high-quality nylon fabric. Our stylish, compressible, and lightweight down jackets for women are ideal for on-the-go use with this packable down jackets carrying pouch,perfect to bring on travels and commutes.' 
 },
 {
-    id: 11,
-    name:'Jacket',
-    price:17,
+    
+    name:'Puffer coat',
+    price:52,
     image:'/images/products/jacket2.jpg',
     category:'jackets', 
+    description:'Filled with breathable ultra-light recycled material, made of high-quality nylon fabric. Our stylish, compressible, and lightweight down jackets for women are ideal for on-the-go use with this packable down jackets carrying pouch,perfect to bring on travels and commutes.'
 },{
-    id: 12,
-    name:'Jacket',
+    
+    name:'Plain Hoodie',
     price:17,
     image:'/images/products/jacket3.jpg',
     category:'jackets', 
+    description:"The hoodie is made of thick cotton fabric which keeps in body heat so you can stay warm and comfortable. This drawstring double fabric hoodie with self-colored draw cord for easy adjustment and providing additional protection from the weather. It also has a deep front pouch kangaroo pocket for storing phone,keys or other small items."
 },{
-    id: 13,
-    name:'Jacket',
+    
+    name:'Designer coat',
     price:17,
     image:'/images/products/jacket4.jpg',
     category:'jackets', 
+    description:'Filled with breathable ultra-light recycled material, made of high-quality nylon fabric. Our stylish, compressible, and lightweight down jackets for women are ideal for on-the-go use with this packable down jackets carrying pouch,perfect to bring on travels and commutes.'
 },{
-    id: 14,
-    name:'Jacket',
-    price:17,
+    
+    name:'Mens Sweater',
+    price:32,
     image:'/images/products/jacket5.jpg',
     category:'jackets', 
+    description:'Item specifics Style: Hedging With or without liner: no liner Collar type: no collar Neckline shape: round neck Sleeve length: long sleeve Whether hooded: no hood Threshold: single-breasted Thickness: General Error range: 1-2cm Main fabric composition: polyester fiber (polyester)'
 },{
-    id: 15,
+    
     name:'Jacket',
-    price:17,
+    price:25,
     image:'/images/products/jacket6.jpg',
     category:'jackets', 
+    description:'Filled with breathable ultra-light recycled material, made of high-quality nylon fabric. Our stylish, compressible, and lightweight down jackets for women are ideal for on-the-go use with this packable down jackets carrying pouch,perfect to bring on travels and commutes.'
 },{
-    id: 16,
-    name:'Jacket',
+    
+    name:'Overshirt jacket',
     price:17,
     image:'/images/products/jacket7.jpg',
     category:'jackets', 
+    description:'Filled with breathable ultra-light recycled material, made of high-quality nylon fabric. Our stylish, compressible, and lightweight down jackets for women are ideal for on-the-go use with this packable down jackets carrying pouch,perfect to bring on travels and commutes.'
 },
 {
-    id: 17,
-    name:'Jacket',
-    price:17,
+    
+    name:'Plain Hoodie',
+    price:22,
     image:'/images/products/jacket8.jpg',
     category:'jackets', 
+    description:"The hoodie is made of thick cotton fabric which keeps in body heat so you can stay warm and comfortable. This drawstring double fabric hoodie with self-colored draw cord for easy adjustment and providing additional protection from the weather. It also has a deep front pouch kangaroo pocket for storing phone,keys or other small items."
 },
 {
-    id: 18,
-    name:'Jacket',
-    price:17,
+    
+    name:'Plain Hoodie',
+    price:20,
     image:'/images/products/jacket9.jpg',
     category:'jackets', 
+    description:"The hoodie is made of thick cotton fabric which keeps in body heat so you can stay warm and comfortable. This drawstring double fabric hoodie with self-colored draw cord for easy adjustment and providing additional protection from the weather. It also has a deep front pouch kangaroo pocket for storing phone,keys or other small items."
 },
 {
-    id: 19,
-    name:'Shirt',
+    
+    name:'Mens short-sleeved plain T-shirt',
     price:17,
     image:'/images/products/shirt1.jpg',
     category:'shirts', 
+    description:'It is made of 100% heavyweight, soft jersey-knit cotton. Extra-strong taped shoulder & neck seams for added durability. Tagless labeling eliminates chafing. Long tail looks good tucked or untucked'
 },
 {
-    id: 20,
-    name:'Shirt',
+    
+    name:'Mens short-sleeved plain T-shirt',
     price:17,
     image:'/images/products/shirt2.jpg',
     category:'shirts', 
+    description:'It is made of 100% heavyweight, soft jersey-knit cotton. Extra-strong taped shoulder & neck seams for added durability. Tagless labeling eliminates chafing. Long tail looks good tucked or untucked'
 },{
-    id: 21,
-    name:'Shirt',
+   
+    name:'Mens short-sleeved plain T-shirt',
     price:17,
     image:'/images/products/shirt3.jpg',
     category:'shirts', 
+    description:'It is made of 100% heavyweight, soft jersey-knit cotton. Extra-strong taped shoulder & neck seams for added durability. Tagless labeling eliminates chafing. Long tail looks good tucked or untucked'
 },{
-    id: 22,
-    name:'Shirt',
+    
+    name:'Mens short-sleeved plain T-shirt',
     price:17,
     image:'/images/products/shirt4.jpg',
     category:'shirts', 
+    description:'It is made of 100% heavyweight, soft jersey-knit cotton. Extra-strong taped shoulder & neck seams for added durability. Tagless labeling eliminates chafing. Long tail looks good tucked or untucked'
 },{
-    id: 23,
-    name:'Shirt',
+    
+    name:'Mens short-sleeved plain T-shirt',
     price:17,
     image:'/images/products/shirt5.jpg',
     category:'shirts', 
+    description:'It is made of 100% heavyweight, soft jersey-knit cotton. Extra-strong taped shoulder & neck seams for added durability. Tagless labeling eliminates chafing. Long tail looks good tucked or untucked'
 },{
-    id: 24,
-    name:'Shirt',
+    
+    name:'Mens short-sleeved plain T-shirt',
     price:17,
     image:'/images/products/shirt6.jpg',
     category:'shirts', 
+    description:'It is made of 100% heavyweight, soft jersey-knit cotton. Extra-strong taped shoulder & neck seams for added durability. Tagless labeling eliminates chafing. Long tail looks good tucked or untucked'
 },{
-    id: 25,
-    name:'Shirt',
+    
+    name:'Men Floral Shirt',
     price:17,
     image:'/images/products/shirt7.jpg',
     category:'shirts', 
+    description:'Spread Collar,Standard Fit,Premium quality made with soft and comfortable cotton fabric.All over flowers prints add tropical appeal to this casual aloha beach shirt,and make this button-up hawaiian shirt a go-to pick for any occasion.'
 },{
-    id: 26,
-    name:'Shirt',
-    price:171717,
+    
+    name:'Men Floral Shirt',
+    price:15,
     image:'/images/products/shirt8.jpg',
     category:'shirts', 
+    description:'Spread Collar,Standard Fit,Premium quality made with soft and comfortable cotton fabric.All over flowers prints add tropical appeal to this casual aloha beach shirt,and make this button-up hawaiian shirt a go-to pick for any occasion.'
 },{
-    id: 27,
-    name:'Shirt',
-    price:171717,
+    
+    name:'Men Floral Shirt',
+    price:15,
     image:'/images/products/shirt9.jpg',
     category:'shirts', 
+    description:'Spread Collar,Standard Fit,Premium quality made with soft and comfortable cotton fabric.All over flowers prints add tropical appeal to this casual aloha beach shirt,and make this button-up hawaiian shirt a go-to pick for any occasion.'
 },{
-    id: 28,
-    name:'Shirt',
-    price:171717,
+    
+    name:'Men Floral Shirt',
+    price:15,
     image:'/images/products/shirt10.jpg',
     category:'shirts', 
+    description:'Spread Collar,Standard Fit,Premium quality made with soft and comfortable cotton fabric.All over flowers prints add tropical appeal to this casual aloha beach shirt,and make this button-up hawaiian shirt a go-to pick for any occasion.'
 },{
-    id: 29,
-    name:'Shirt',
-    price:171717,
+    
+    name:'Men Floral Shirt',
+    price:25,
     image:'/images/products/shirt11.jpg',
     category:'shirts', 
+    description:'It is made of 100% heavyweight, soft jersey-knit cotton. Extra-strong taped shoulder & neck seams for added durability. Tagless labeling eliminates chafing. Long tail looks good tucked or untucked'
+    
 },{
-    id: 30,
-    name:'Shirt',
-    price:171717,
+    
+    name:'Mens long-sleeved shirt',
+    price:20,
     image:'/images/products/shirt12.jpg',
     category:'shirts', 
+    description:'It is made of 100% heavyweight, soft jersey-knit cotton. Extra-strong taped shoulder & neck seams for added durability. Tagless labeling eliminates chafing. Long tail looks good tucked or untucked'
 },{
-    id: 31,
-    name:'Shirt',
-    price:171717,
+  
+    name:'Women blouse',
+    price:18,
     image:'/images/products/shirt13.jpg',
-    category:'shirts', 
+    category:'shirts',
+    description:'It is made of 100% heavyweight, soft jersey-knit cotton. Extra-strong taped shoulder & neck seams for added durability. Tagless labeling eliminates chafing. Long tail looks good tucked or untucked' 
 },{
-    id: 32,
-    name:'Shirt',
-    price:171717,
+  
+    name:'Long-sleeved shirt',
+    price:15,
     image:'/images/products/shirt14.jpg',
     category:'shirts', 
+    description:'It is made of 100% heavyweight, soft jersey-knit cotton. Extra-strong taped shoulder & neck seams for added durability. Tagless labeling eliminates chafing. Long tail looks good tucked or untucked'
 },{
-    id: 33,
-    name:'Shirt',
-    price:171717,
+    
+    name:'Long-sleeved shirt',
+    price:17,
     image:'/images/products/shirt15.jpg',
     category:'shirts', 
+    description:'It is made of 100% heavyweight, soft jersey-knit cotton. Extra-strong taped shoulder & neck seams for added durability. Tagless labeling eliminates chafing. Long tail looks good tucked or untucked'
 },{
-    id: 34,
-    name:'Shirt',
-    price:1717,
+    
+    name:'Long-sleeved Shirt',
+    price:23,
     image:'/images/products/shirt16.jpg',
     category:'shirts', 
+    description:'It is made of 100% heavyweight, soft jersey-knit cotton. Extra-strong taped shoulder & neck seams for added durability. Tagless labeling eliminates chafing. Long tail looks good tucked or untucked'
 },{
-    id: 35,
-    name:'Shirt',
-    price:1717,
+    
+    name:'Short-sleeved Shirt',
+    price:17,
     image:'/images/products/shirt17.jpg',
     category:'shirts', 
+    description:'It is made of 100% heavyweight, soft jersey-knit cotton. Extra-strong taped shoulder & neck seams for added durability. Tagless labeling eliminates chafing. Long tail looks good tucked or untucked'
 },{
-    id: 36,
-    name:'Shirt',
-    price:1717,
+    
+    name:'Long-sleeved Shirt',
+    price:17,
     image:'/images/products/shirt18.jpg',
     category:'shirts', 
+    description:'It is made of 100% heavyweight, soft jersey-knit cotton. Extra-strong taped shoulder & neck seams for added durability. Tagless labeling eliminates chafing. Long tail looks good tucked or untucked'
 },{
-    id: 37,
-    name:'Shirt',
-    price:1717,
+   
+    name:'Short-sleeved Shirt',
+    price:17,
     image:'/images/products/shirt19.jpg',
     category:'shirts', 
+    description:'It is made of 100% heavyweight, soft jersey-knit cotton. Extra-strong taped shoulder & neck seams for added durability. Tagless labeling eliminates chafing. Long tail looks good tucked or untucked'
 },{
-    id: 38,
-    name:'Shoe',
-    price:1717,
+   
+    name:'Unisex sneakers',
+    price:24,
     image:'/images/products/shoe1.jpg',
     category:'shoes', 
+    description:'All day comfortable wear while walking or transport must be comfort wear. Relaxed fit last to help provide versatile comfort wear after wear. Our Store provide the Light Wear, Fashionable and Comfortable based the new trend and generation needed. "Choose Fashion for your comfort wear and enjoy your long day!!!"'
 },{
-    id: 39,
-    name:'Shoe',
-    price:17,
+   
+    name:'Mens sneakers',
+    price:44,
     image:'/images/products/shoe2.jpg',
     category:'shoes', 
+    description:'All day comfortable wear while walking or transport must be comfort wear. Relaxed fit last to help provide versatile comfort wear after wear. Our Store provide the Light Wear, Fashionable and Comfortable based the new trend and generation needed. "Choose Fashion for your comfort wear and enjoy your long day!!!"'
 },{
-    id: 40,
-    name:'Shoe',
-    price:17,
+   
+    name:'Mens sneakers',
+    price:22,
     image:'/images/products/shoe3.jpg',
     category:'shoes', 
+    description:'All day comfortable wear while walking or transport must be comfort wear. Relaxed fit last to help provide versatile comfort wear after wear. Our Store provide the Light Wear, Fashionable and Comfortable based the new trend and generation needed. "Choose Fashion for your comfort wear and enjoy your long day!!!"'
 },{
-    id: 41,
-    name:'Shoe',
-    price:17,
+    
+    name:'Mens sneakers',
+    price:20,
     image:'/images/products/shoe4.jpg',
     category:'shoes', 
+    description:'All day comfortable wear while walking or transport must be comfort wear. Relaxed fit last to help provide versatile comfort wear after wear. Our Store provide the Light Wear, Fashionable and Comfortable based the new trend and generation needed. "Choose Fashion for your comfort wear and enjoy your long day!!!"'
 },{
-    id: 42,
-    name:'Shoe',
-    price:17,
+    
+    name:'Leather Shoes',
+    price:45,
     image:'/images/products/shoe5.jpg',
     category:'shoes', 
+    description:'All day comfortable wear while walking or transport must be comfort wear. Relaxed fit last to help provide versatile comfort wear after wear. Our Store provide the Light Wear, Fashionable and Comfortable based the new trend and generation needed. "Choose Fashion for your comfort wear and enjoy your long day!!!"'
 },
 {
-    id: 43,
-    name:'Shoe',
-    price:17,
+   
+    name:'Leather Shoes',
+    price:50,
     image:'/images/products/shoe6.jpg',
     category:'shoes', 
+    description:'All day comfortable wear while walking or transport must be comfort wear. Relaxed fit last to help provide versatile comfort wear after wear. Our Store provide the Light Wear, Fashionable and Comfortable based the new trend and generation needed. "Choose Fashion for your comfort wear and enjoy your long day!!!"'
 },
 {
-    id: 44,
-    name:'Shoe',
-    price:17,
+
+    name:'Leather Shoes',
+    price:23,
     image:'/images/products/shoe7.jpg',
     category:'shoes', 
+    description:'All day comfortable wear while walking or transport must be comfort wear. Relaxed fit last to help provide versatile comfort wear after wear. Our Store provide the Light Wear, Fashionable and Comfortable based the new trend and generation needed. "Choose Fashion for your comfort wear and enjoy your long day!!!"'
 },
 {
-    id: 45,
-    name:'Shoe',
-    price:17,
+
+    name:'Mens Sneakers',
+    price:28,
     image:'/images/products/shoe8.jpg',
     category:'shoes', 
+    description:'All day comfortable wear while walking or transport must be comfort wear. Relaxed fit last to help provide versatile comfort wear after wear. Our Store provide the Light Wear, Fashionable and Comfortable based the new trend and generation needed. "Choose Fashion for your comfort wear and enjoy your long day!!!"'
 },
 {
-    id: 46,
-    name:'Shoe',
-    price:17,
+
+    name:'Mens sneakers',
+    price:25,
     image:'/images/products/shoe9.jpg',
     category:'shoes', 
+    description:'All day comfortable wear while walking or transport must be comfort wear. Relaxed fit last to help provide versatile comfort wear after wear. Our Store provide the Light Wear, Fashionable and Comfortable based the new trend and generation needed. "Choose Fashion for your comfort wear and enjoy your long day!!!"'
 },
 {
-    id: 47,
-    name:'Shoe',
-    price:17,
+
+    name:'Blue sneakers',
+    price:20,
     image:'/images/products/shoe10.jpg',
     category:'shoes', 
+    description:'All day comfortable wear while walking or transport must be comfort wear. Relaxed fit last to help provide versatile comfort wear after wear. Our Store provide the Light Wear, Fashionable and Comfortable based the new trend and generation needed. "Choose Fashion for your comfort wear and enjoy your long day!!!"'
 },
 {
-    id: 48,
-    name:'Shoe',
-    price:1717,
+
+    name:'Unisex sneakers',
+    price:26,
     image:'/images/products/shoe11.jpg',
     category:'shoes', 
+    description:'All day comfortable wear while walking or transport must be comfort wear. Relaxed fit last to help provide versatile comfort wear after wear. Our Store provide the Light Wear, Fashionable and Comfortable based the new trend and generation needed. "Choose Fashion for your comfort wear and enjoy your long day!!!"'
 },{
-    id: 49,
-    name:'Shoe',
-    price:17,
+
+    name:'White Sneakers',
+    price:34,
     image:'/images/products/shoe12.jpg',
     category:'shoes', 
+    description:'All day comfortable wear while walking or transport must be comfort wear. Relaxed fit last to help provide versatile comfort wear after wear. Our Store provide the Light Wear, Fashionable and Comfortable based the new trend and generation needed. "Choose Fashion for your comfort wear and enjoy your long day!!!"'
 },{
-    id: 50,
-    name:'Shoe',
+
+    name:'Mes Leather Shoes',
     price:17,
     image:'/images/products/shoe13.jpg',
     category:'shoes', 
+    description:'All day comfortable wear while walking or transport must be comfort wear. Relaxed fit last to help provide versatile comfort wear after wear. Our Store provide the Light Wear, Fashionable and Comfortable based the new trend and generation needed. "Choose Fashion for your comfort wear and enjoy your long day!!!"'
 },
 {
-    id: 51,
-    name:'Watch',
-    price:17,
+
+    name:'Designer Watch',
+    price:65,
     image:'/images/products/watch1.jpg',
     category:'watches', 
+    description:'This watch is a fashionable classic business calendar watch. Its unique appearance attracts everyones attention. It is designed with high-quality materials, adding a sense of refinement to your modeling. This beautiful watch is designed for your personality and style.This watch is waterproof and suitable for outdoor activities of your choice. '
 },
 {
-    id: 52,
-    name:'Watch',
-    price:17,
+
+    name:'Mens Watch',
+    price:100,
     image:'/images/products/watch2.jpg',
     category:'watches', 
+    description:'This watch is a fashionable classic business calendar watch. Its unique appearance attracts everyones attention. It is designed with high-quality materials, adding a sense of refinement to your modeling. This beautiful watch is designed for your personality and style.This watch is waterproof and suitable for outdoor activities of your choice. '
 },
 {
-    id: 53,
-    name:'Watch',
-    price:17,
+
+    name:'Mens Watch Fashion Stainless',
+    price:75,
     image:'/images/products/watch3.jpg',
     category:'watches', 
+    description:'This watch is a fashionable classic business calendar watch. Its unique appearance attracts everyones attention. It is designed with high-quality materials, adding a sense of refinement to your modeling. This beautiful watch is designed for your personality and style.This watch is waterproof and suitable for outdoor activities of your choice. '
 },
 {
-    id: 54,
-    name:'Watch',
-    price:17,
+    
+    name:'Designer Watch',
+    price:50,
     image:'/images/products/watch4.jpg',
     category:'watches', 
+    description:'This watch is a fashionable classic business calendar watch. Its unique appearance attracts everyones attention. It is designed with high-quality materials, adding a sense of refinement to your modeling. This beautiful watch is designed for your personality and style.This watch is waterproof and suitable for outdoor activities of your choice. '
 },
 {
-    id: 55,
-    name:'Watch',
-    price:17,
+
+    name:'Mens Fashion Watch',
+    price:125,
     image:'/images/products/watch5.jpg',
     category:'watches', 
+    description:'This watch is a fashionable classic business calendar watch. Its unique appearance attracts everyones attention. It is designed with high-quality materials, adding a sense of refinement to your modeling. This beautiful watch is designed for your personality and style.This watch is waterproof and suitable for outdoor activities of your choice. '
 },
 {
-    id: 56,
+
     name:'Watch',
-    price:17,
+    price:40,
     image:'/images/products/watch6.jpg',
     category:'watches', 
+    description:'This watch is a fashionable classic business calendar watch. Its unique appearance attracts everyones attention. It is designed with high-quality materials, adding a sense of refinement to your modeling. This beautiful watch is designed for your personality and style.This watch is waterproof and suitable for outdoor activities of your choice. '
 },
 
 ]
