@@ -1,4 +1,4 @@
-import { Products } from '@/utils/data'
+import { Products } from '@/pages/api/products';
 import { create } from 'zustand'
 import {persist} from 'zustand/middleware'
 
@@ -8,6 +8,7 @@ export type Cart = {
     price: number;
     image: string;
     category: string;
+    description:string
     quantity: number;
 }
 
