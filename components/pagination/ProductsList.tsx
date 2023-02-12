@@ -1,20 +1,21 @@
 "use client";
 
+import { Products } from "@/pages/api/products";
 import React, { useState } from "react";
-import { products } from "@/utils/data";
 import Product from "../Product";
 import Pagination from "./Pagination";
 
-export default function ProductsList() {
+interface Data {
+  data: Products[];
+}
+
+export default function ProductsList({ data }: Data) {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [productsPerPage, setProductsPerPage] = useState<number>(12);
 
   const indexOfLastProduct: number = currentPage * productsPerPage;
   const indexOfFirstProduct: number = indexOfLastProduct - productsPerPage;
-  const currentProducts = products.slice(
-    indexOfFirstProduct,
-    indexOfLastProduct
-  );
+  const currentProducts = data?.slice(indexOfFirstProduct, indexOfLastProduct);
 
   //change page
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
@@ -37,14 +38,14 @@ export default function ProductsList() {
     <div id='products'>
       <div className='flex flex-col items-center'>
         <div className='pt-2 flex flex-wrap gap-3 justify-center'>
-          {currentProducts.map((product) => (
+          {currentProducts?.map((product) => (
             <Product key={product.id} data={product} />
           ))}
         </div>
         <div>
           <Pagination
             productsPerPage={productsPerPage}
-            totalProducts={products.length}
+            totalProducts={data?.length}
             paginate={paginate}
             currentPage={currentPage}
             previousPage={previousPage}

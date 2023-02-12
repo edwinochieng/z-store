@@ -13,7 +13,15 @@ const getProducts = async () => {
 
 export default async function Home() {
   const data = await getProducts();
-  console.log(data);
 
-  return <div>Hello</div>;
+  return (
+    <div>
+      <div>
+        <Banner />
+      </div>
+      <div>
+        <ProductsList data={data} />
+      </div>
+    </div>
+  );
 }

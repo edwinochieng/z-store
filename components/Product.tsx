@@ -1,10 +1,10 @@
 "use client";
 
-import { Products } from "@/utils/data";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import useStore from "@/store/store";
+import { Products } from "@/pages/api/products";
 
 interface Data {
   data: Products;
