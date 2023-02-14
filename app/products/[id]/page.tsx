@@ -1,9 +1,23 @@
 import React from "react";
-import { products } from "@/utils/data";
 import Details from "@/components/product details/Details";
 
-export default function ProductPage({ params }: { params: { id: number } }) {
-  const product = products.find((item) => item.id == params.id);
+const getProductDetails = async (productId: string) => {
+  const res = await fetch(`${process.env.BASE_URL}/api/products/${productId}`, {
+    cache: "no-store",
+  });
 
-  return <Details product={product} />;
+  if (!res.ok) {
+    throw new Error("Data not fetched");
+  }
+
+  return res.json();
+};
+export default async function ProductPage({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const data = await getProductDetails(params.id);
+
+  return <Details product={data} />;
 }
