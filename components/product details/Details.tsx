@@ -30,7 +30,7 @@ export default function Details({ product }: Details) {
           width={500}
         />
       </div>
-      <div className='pt-2 md:pt-0 md:pl-4'>
+      <div className='pt-2 md:pt-0 md:pl-4 max-w-[500px]'>
         <div className='text-gray-800'>
           <h1 className='font-bold text-2xl'>{product?.name}</h1>
           <h1 className='font-semibold text-xl pt-1'>${product?.price}</h1>
@@ -47,7 +47,7 @@ export default function Details({ product }: Details) {
           <h1 className='text-lg font-semibold text-gray-700'>
             Product Details
           </h1>
-          <p className='max-w-[500px] w-full text-sm text-gray-700'>
+          <p className=' w-full text-sm text-gray-700'>
             {product?.description}
           </p>
         </div>
