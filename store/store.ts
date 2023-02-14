@@ -3,7 +3,7 @@ import { create } from 'zustand'
 import {persist} from 'zustand/middleware'
 
 export type Cart = {
-    id: number;
+    id: string;
     name: string;
     price: number;
     image: string;
