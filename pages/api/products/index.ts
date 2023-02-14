@@ -1,5 +1,4 @@
 import { prisma } from '@/prisma/client'
-import { products } from '@/utils/data'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export interface Products {
