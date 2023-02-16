@@ -44,24 +44,20 @@ const useStore = create<Store>()(
             },
             updateQuantity: (product,action) => {
               const cart = get().cartItems;
-              const foundIndex = cart.findIndex((item) => item.id === product.id);
+              const foundProduct = cart.find((item) => item.id === product.id);
 
-              if(foundIndex >=0){
-                if (action === 'increase') {
-                  cart[foundIndex] = {
-                    ...cart[foundIndex],
-                    quantity: cart[foundIndex].quantity + 1,
-                  };
-                } else if(action === 'decrease') {
-                 cart[foundIndex] = {
-                   ...cart[foundIndex],
-                   quantity: cart[foundIndex].quantity > 1 ? cart[foundIndex].quantity - 1 : cart[foundIndex].quantity
-                 };
-                }
+              if(foundProduct) {
+                  if(action === 'decrease') {
+                      foundProduct.quantity = foundProduct.quantity > 1 ? foundProduct.quantity - 1 : foundProduct.quantity; 
+                  } else if(action === 'increase'){
+                      foundProduct.quantity += 1;
+                  }
+                  set(() => ({
+                    cartItems: [...cart],
+                  }));
               }
-              
-            }
-             ,
+                
+            },
             
             removeFromCart: (product) => {
               set({cartItems: get().cartItems.filter((item) => item.id !== product.id)})
@@ -70,7 +66,7 @@ const useStore = create<Store>()(
           clearCart: () => set({cartItems: [] }),
 
           })
-          , {name:'cart', getStorage: () => localStorage}
+          , {name:'cart'}
     )
     )
 
