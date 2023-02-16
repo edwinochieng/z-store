@@ -7,8 +7,9 @@ import Image from "next/image";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
-export default function Cart() {
+function Cart() {
   const cart = useStore((state) => state.cartItems);
   const updateQuantity = useStore((state) => state.updateQuantity);
   const removeFromCart = useStore((state) => state.removeFromCart);
@@ -24,7 +25,9 @@ export default function Cart() {
           <div className='w-3/4 bg-white px-10 py-10'>
             <div className='flex justify-between border-b pb-8'>
               <h1 className='font-semibold text-2xl'>Shopping Cart</h1>
-              <h2 className='font-semibold text-2xl'>{cart.length} Items</h2>
+              <h2 className='font-semibold text-2xl'>
+                {cart.reduce((a, c) => a + c.quantity, 0)} Items
+              </h2>
             </div>
             <div className='flex mt-10 mb-5'>
               <h3 className='font-semibold text-gray-600 text-xs uppercase w-2/5'>
@@ -130,3 +133,5 @@ export default function Cart() {
     </div>
   );
 }
+
+export default dynamic(() => Promise.resolve(Cart), { ssr: false });
