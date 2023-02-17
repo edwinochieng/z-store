@@ -19,9 +19,9 @@ function Cart() {
   }
 
   return (
-    <div className='mt-6 flex flex-col items-center'>
-      <div className='max-w-[700px] bg-white shadow-md px-2 py-4'>
-        <div className='flex justify-between border-b pb-5'>
+    <div className='mt-6 max-w-sm sm:max-w-[700px] w-full mx-auto'>
+      <div className=' rounded-md bg-white shadow-md px-3 py-4'>
+        <div className='flex justify-between border-b pt-3 pb-5'>
           <h1 className='font-semibold text-lg'>Shopping Cart</h1>
           <h2 className='font-semibold text-lg'>
             {cart.reduce((a, c) => a + c.quantity, 0)} Items
@@ -39,34 +39,38 @@ function Cart() {
           <tbody>
             {cart.map((item) => (
               <tr key={item.id} className='border-b'>
-                <td className='py-2'>
-                  <Link
-                    href={`/products/${item.id}`}
-                    className='flex items-center gap-2'
-                  >
-                    <Image
-                      src={item.image}
-                      height='50'
-                      width='50'
-                      alt={item.name}
-                    />
+                <td className='py-2 mr-2'>
+                  <div className='flex items-center '>
+                    <div className='h-[50px] w-[50px]'>
+                      <Link href={`/products/${item.id}`}>
+                        <Image
+                          src={item.image}
+                          height='50'
+                          width='50'
+                          alt={item.name}
+                          className='w-full h-full'
+                        />
+                      </Link>
+                    </div>
                     &nbsp;
-                    <div className='flex flex-col justify-between'>
-                      <span className='text-[14px]'>{item.name}</span>
+                    <div className='pl-1 flex flex-col justify-between max-h-[50px] h-full'>
+                      <span className='truncate overflow-hidden max-w-[70px] sm:max-w-[300px] w-full text-[13px]'>
+                        {item.name}
+                      </span>
                       <span
                         onClick={() => removeFromCart(item)}
-                        className='font-semibold hover:text-red-500 text-gray-500 text-xs'
+                        className='cursor-pointer font-semibold hover:text-red-500 text-gray-500 text-xs'
                       >
                         Remove
                       </span>
                     </div>
-                  </Link>
+                  </div>
                 </td>
                 <td className='text-center'>
                   <div className='flex items-center justify-center'>
                     <AiOutlineMinus
                       onClick={() => updateQuantity(item, "decrease")}
-                      className='fill-current text-gray-600 w-3'
+                      className='fill-current text-gray-600 w-3 cursor-pointer'
                     />
 
                     <div className='mx-2 border text-center w-8'>
@@ -75,7 +79,7 @@ function Cart() {
 
                     <AiOutlinePlus
                       onClick={() => updateQuantity(item, "increase")}
-                      className='fill-current text-gray-600 w-3'
+                      className='fill-current text-gray-600 w-3 cursor-pointer'
                     />
                   </div>
                 </td>
@@ -97,13 +101,15 @@ function Cart() {
         </div>
 
         {/**Order Summary */}
-        <div className=' px-3 py-2'>
+        <div className=' py-2'>
           <div className=''>
-            <div className='flex font-semibold justify-between py-4 text-sm uppercase'>
-              <span>Total cost</span>
-              <span>${cart.reduce((a, c) => a + c.quantity * c.price, 0)}</span>
+            <div className='flex font-semibold justify-between py-2 uppercase'>
+              <span className='text-sm'>Total cost</span>
+              <span className='text-base'>
+                ${cart.reduce((a, c) => a + c.quantity * c.price, 0)}
+              </span>
             </div>
-            <button className='bg-indigo-500 rounded-md font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full'>
+            <button className='bg-indigo-500 rounded font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full'>
               Checkout
             </button>
           </div>
