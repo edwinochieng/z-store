@@ -20,9 +20,15 @@ function Cart() {
 
   return (
     <div className='mt-6 flex flex-col items-center'>
-      <div className='max-w-[700px] shadow-md px-2 py-4'>
-        <table className='w-full'>
-          <thead>
+      <div className='max-w-[700px] bg-white shadow-md px-2 py-4'>
+        <div className='flex justify-between border-b pb-5'>
+          <h1 className='font-semibold text-lg'>Shopping Cart</h1>
+          <h2 className='font-semibold text-lg'>
+            {cart.reduce((a, c) => a + c.quantity, 0)} Items
+          </h2>
+        </div>
+        <table className='mt-4 w-full'>
+          <thead className='text-sm'>
             <tr>
               <th className='text-left'>Item</th>
               <th className='text-center px-2'>Quantity</th>
