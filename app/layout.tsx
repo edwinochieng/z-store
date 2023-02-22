@@ -13,7 +13,7 @@ export default function RootLayout({
     <html lang='en'>
       <head />
       <body
-        className={`max-w-[1920px] w-full px-4 md:px-12 lg:px-16 ${inter.className}`}
+        className={`max-w-[1920px] w-full px-3 md:px-12 lg:px-16 ${inter.className}`}
       >
         <Navbar />
         <div>{children}</div>
