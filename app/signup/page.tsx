@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 
 interface SignUpInputs {
+  name: string;
   email: string;
   password: string;
   confirmPassword: string;
@@ -21,6 +22,29 @@ export default function SignUp() {
     <div className='max-w-[700px] mx-auto'>
       <form className='bg-white  mt-24 lg:mt-12 mb-0 space-y-4 rounded-xl py-8 px-3 sm:px-8 shadow-2xl'>
         <p className='text-lg font-medium'>Create an account</p>
+
+        <div>
+          <label htmlFor='name' className='text-sm font-medium'>
+            Name
+          </label>
+
+          <div className='relative mt-1'>
+            <input
+              {...register("name", {
+                required: "Please enter your name",
+              })}
+              type='name'
+              id='name'
+              className='w-full rounded-lg border border-gray-200 p-3 sm:p-4 pr-12 text-sm focus:outline-indigo-500'
+              placeholder='Enter name'
+            />
+            {errors.name && (
+              <span className='text-red-500 pt-1 text-sm'>
+                {errors.name.message}
+              </span>
+            )}
+          </div>
+        </div>
 
         <div>
           <label htmlFor='email' className='text-sm font-medium'>
