@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { signIn } from "next-auth/react";
 import axios from "axios";
+import { getError } from "@/utils/error";
+import { toast } from "react-hot-toast";
 
 interface SignUpInputs {
   name: string;
@@ -22,22 +24,22 @@ export default function SignUp() {
   } = useForm<SignUpInputs>();
 
   const submitHandler = async ({ name, email, password }: SignUpInputs) => {
-    await axios.post("/api/auth/signup", {
-      name,
-      email,
-      password,
-    });
+    try {
+      await axios.post("/api/auth/signup", { name, email, password });
 
-    const result = await signIn("credentials", {
-      redirect: false,
-      email,
-      password,
-    });
-
-    {
-      /**If result error toast */
+      const result = await signIn("credentials", {
+        redirect: false,
+        email,
+        password,
+      });
+      if (result!.error) {
+        toast.error(result!.error);
+      }
+    } catch (err) {
+      toast.error(getError(err));
     }
   };
+
   return (
     <div className='max-w-[700px] mx-auto'>
       <form

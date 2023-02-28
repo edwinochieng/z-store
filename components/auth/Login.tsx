@@ -4,6 +4,8 @@ import React from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { signIn } from "next-auth/react";
+import { getError } from "@/utils/error";
+import { toast } from "react-hot-toast";
 
 interface LoginInputs {
   email: string;
@@ -18,11 +20,18 @@ export default function Login() {
   } = useForm<LoginInputs>();
 
   const submitHandler = async ({ email, password }: LoginInputs) => {
-    await signIn("credentials", {
-      redirect: false,
-      email,
-      password,
-    });
+    try {
+      const result = await signIn("credentials", {
+        redirect: false,
+        email,
+        password,
+      });
+      if (result!.error) {
+        toast.error(result!.error);
+      }
+    } catch (err) {
+      toast.error(getError(err));
+    }
   };
   return (
     <div className='max-w-[700px] mx-auto'>
