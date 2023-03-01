@@ -1,12 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import axios from "axios";
 import { getError } from "@/utils/error";
 import { toast } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 interface SignUpInputs {
   name: string;
@@ -16,6 +17,15 @@ interface SignUpInputs {
 }
 
 export default function SignUp() {
+  const { data: session } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (session?.user) {
+      router.push("/");
+    }
+  }, [router, session]);
+
   const {
     register,
     handleSubmit,
