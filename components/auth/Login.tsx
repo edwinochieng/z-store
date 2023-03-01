@@ -1,11 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { getError } from "@/utils/error";
 import { toast } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 interface LoginInputs {
   email: string;
@@ -13,6 +14,15 @@ interface LoginInputs {
 }
 
 export default function Login() {
+  const { data: session } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (session?.user) {
+      router.push("/");
+    }
+  }, [router, session]);
+
   const {
     register,
     handleSubmit,
