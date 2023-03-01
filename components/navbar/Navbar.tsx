@@ -6,8 +6,10 @@ import { Account } from "./Account";
 import { IoBagHandle } from "react-icons/io5";
 import Link from "next/link";
 import useStore from "@/store/store";
+import { useSession } from "next-auth/react";
 
 export default function Navbar() {
+  const { data: session } = useSession();
   const cart = useStore((state) => state.cartItems);
   const [cartItemsCount, setCartItemsCount] = useState<number>(0);
 
@@ -26,12 +28,17 @@ export default function Navbar() {
             <Categories />
           </div>
         </div>
-        <div className='flex'>
-          <div>
+        <div className='flex items-center'>
+          {session?.user ? (
             <Account />
-          </div>
-          <div className='pl-5'>
-            <Link href='/cart' className='flex'>
+          ) : (
+            <div className='px-2 py-[5px] rounded-md bg-gray-700 text-xs md:text-sm text-gray-100'>
+              <Link href='/login'>Sign In</Link>
+            </div>
+          )}
+
+          <div className='pl-4'>
+            <Link href='/cart' className='flex text-gray-800'>
               <span>
                 <IoBagHandle size={24} />
               </span>
