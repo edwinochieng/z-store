@@ -3,8 +3,16 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { BiUser } from "react-icons/bi";
 import Link from "next/link";
+import { signOut } from "next-auth/react";
+import useStore from "@/store/store";
 
 export const Account = () => {
+  const clearCart = useStore((state) => state.clearCart);
+
+  const logOutHandler = () => {
+    clearCart();
+    signOut({ callbackUrl: "/" });
+  };
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger className='outline-none'>
@@ -15,7 +23,10 @@ export const Account = () => {
           <DropdownMenu.Item className='pl-4 cursor-pointer rounded hover:bg-gray-100 hover:outline-none'>
             <Link href='/orders'>My Orders</Link>
           </DropdownMenu.Item>
-          <DropdownMenu.Item className='pl-4 cursor-pointer rounded hover:bg-gray-100 hover:outline-none'>
+          <DropdownMenu.Item
+            onClick={logOutHandler}
+            className='pl-4 cursor-pointer rounded hover:bg-gray-100 hover:outline-none'
+          >
             Log Out
           </DropdownMenu.Item>
         </DropdownMenu.Content>
