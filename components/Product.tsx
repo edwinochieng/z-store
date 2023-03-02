@@ -6,6 +6,7 @@ import React from "react";
 import useStore from "@/store/store";
 import { Products } from "@/pages/api/products";
 import { MdOutlineShoppingCart } from "react-icons/md";
+import { toast } from "react-hot-toast";
 
 interface Data {
   data: Products;
@@ -13,6 +14,10 @@ interface Data {
 
 export default function Product({ data }: Data) {
   const addToCart = useStore((state) => state.addToCart);
+  const addToCartHandler = () => {
+    addToCart({ ...data });
+    toast.success("Added to Cart");
+  };
 
   return (
     <div className='w-[160px] sm:w-[190px] shadow-xl rounded-md cursor-pointer'>
@@ -37,7 +42,7 @@ export default function Product({ data }: Data) {
             ${data.price}
           </span>
           <button
-            onClick={() => addToCart({ ...data })}
+            onClick={addToCartHandler}
             className='py-1 px-2 rounded-lg bg-gray-100 text-gray-800'
           >
             <MdOutlineShoppingCart size={17} />
