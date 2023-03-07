@@ -7,7 +7,7 @@ import { signIn, useSession } from "next-auth/react";
 import axios from "axios";
 import { getError } from "@/utils/error";
 import { toast } from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 interface SignUpInputs {
   name: string;
@@ -19,13 +19,15 @@ interface SignUpInputs {
 export default function SignUp() {
   const { data: session } = useSession();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirect = searchParams.get("redirect");
 
   useEffect(() => {
     if (session?.user) {
-      router.push("/");
+      router.push(redirect || "/");
     }
     toast.success("User created successfuly");
-  }, [router, session]);
+  }, [router, session, redirect]);
 
   const {
     register,
