@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { signIn, useSession } from "next-auth/react";
 import { getError } from "@/utils/error";
 import { toast } from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 interface LoginInputs {
   email: string;
@@ -16,12 +16,14 @@ interface LoginInputs {
 export default function Login() {
   const { data: session } = useSession();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirect = searchParams.get("redirect");
 
   useEffect(() => {
     if (session?.user) {
-      router.push("/");
+      router.push(redirect || "/");
     }
-  }, [router, session]);
+  }, [router, session, redirect]);
 
   const {
     register,
