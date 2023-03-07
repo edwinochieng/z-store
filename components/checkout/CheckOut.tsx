@@ -4,9 +4,19 @@ import React from "react";
 import useStore from "@/store/store";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 function CheckOut() {
+  const router = useRouter();
   const cart = useStore((state) => state.cartItems);
+  const { status } = useSession({
+    required: true,
+    onUnauthenticated() {
+      router.push("/unauthorized");
+    },
+  });
+
   return (
     <div className=' rounded-md bg-white shadow-md px-3 py-4'>
       <div className='flex justify-between border-b pt-3 pb-5'>
