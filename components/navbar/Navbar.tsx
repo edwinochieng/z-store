@@ -7,9 +7,11 @@ import { IoBagHandle } from "react-icons/io5";
 import Link from "next/link";
 import useStore from "@/store/store";
 import { useSession } from "next-auth/react";
+import LoadingSpinner from "../LoadingSpinner";
+import LogInButton from "./LogInButton";
 
 export default function Navbar() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const cart = useStore((state) => state.cartItems);
   const [cartItemsCount, setCartItemsCount] = useState<number>(0);
 
@@ -29,12 +31,12 @@ export default function Navbar() {
           </div>
         </div>
         <div className='flex items-center'>
-          {session?.user ? (
+          {status === "loading" ? (
+            <LoadingSpinner />
+          ) : session?.user ? (
             <Account />
           ) : (
-            <div className='px-2 py-[5px] rounded-md bg-gray-700 text-xs md:text-sm text-gray-100'>
-              <Link href='/login'>Sign In</Link>
-            </div>
+            <LogInButton />
           )}
 
           <div className='pl-4'>
