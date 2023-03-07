@@ -8,11 +8,25 @@ import { FaLongArrowAltLeft } from "react-icons/fa";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 
 function Cart() {
+  const { data: session } = useSession();
+  const router = useRouter();
   const cart = useStore((state) => state.cartItems);
   const updateQuantity = useStore((state) => state.updateQuantity);
   const removeFromCart = useStore((state) => state.removeFromCart);
+
+  const checkOutHandler = (): void => {
+    if (session?.user) {
+      router.push("/checkout");
+    } else {
+      toast.error("Log in to proceed to Checkout");
+      router.push("login?redirect=/checkout");
+    }
+  };
 
   if (cart.length == 0) {
     return <EmptyCart />;
@@ -109,7 +123,10 @@ function Cart() {
                 ${cart.reduce((a, c) => a + c.quantity * c.price, 0)}
               </span>
             </div>
-            <button className='bg-indigo-500 rounded font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full'>
+            <button
+              onClick={checkOutHandler}
+              className='bg-indigo-500 rounded font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full'
+            >
               Checkout
             </button>
           </div>
