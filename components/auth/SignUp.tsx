@@ -24,6 +24,7 @@ export default function SignUp() {
     if (session?.user) {
       router.push("/");
     }
+    toast.success("User created successfuly");
   }, [router, session]);
 
   const {

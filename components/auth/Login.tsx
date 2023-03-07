@@ -23,6 +23,7 @@ export default function Login() {
     if (session?.user) {
       router.push(redirect || "/");
     }
+    toast.success("Logged In successfuly");
   }, [router, session, redirect]);
 
   const {
