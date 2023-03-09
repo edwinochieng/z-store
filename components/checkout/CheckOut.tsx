@@ -31,6 +31,7 @@ function CheckOut() {
     formState: { errors },
   } = useForm<AddressInputs>();
 
+  const total: number = cart.reduce((a, c) => a + c.quantity * c.price, 0);
   return (
     <div className='mt-4 sm:mt-8  flex flex-col lg:flex-row'>
       {/**Address form */}
@@ -150,9 +151,7 @@ function CheckOut() {
         </table>
         <div className='w-full flex font-semibold justify-between py-2 uppercase'>
           <span className='text-sm'>Total cost</span>
-          <span className='text-base'>
-            ${cart.reduce((a, c) => a + c.quantity * c.price, 0)}
-          </span>
+          <span className='text-base'>${total}</span>
         </div>
 
         <button className='bg-indigo-500 rounded font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full'>
