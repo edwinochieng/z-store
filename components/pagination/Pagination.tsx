@@ -36,7 +36,7 @@ export default function Pagination({
   };
 
   return (
-    <div className='my-6 text-sm'>
+    <div className='my-7 text-sm'>
       <ul className='inline-flex -space-x-px'>
         <li>
           <a
