@@ -1,12 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import useStore from "@/store/store";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
+import { getError } from "@/utils/error";
+import axios from "axios";
 
 interface AddressInputs {
   fullName: string;
@@ -17,6 +20,10 @@ interface AddressInputs {
 function CheckOut() {
   const router = useRouter();
   const cart = useStore((state) => state.cartItems);
+  const clearCart = useStore((state) => state.clearCart);
+
+  const total: number = cart.reduce((a, c) => a + c.quantity * c.price, 0);
+
   const { status } = useSession({
     required: true,
     onUnauthenticated() {
@@ -31,12 +38,32 @@ function CheckOut() {
     formState: { errors },
   } = useForm<AddressInputs>();
 
-  const total: number = cart.reduce((a, c) => a + c.quantity * c.price, 0);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const submitHandler = async ({ fullName, address, city }: AddressInputs) => {
+    try {
+      setLoading(true);
+      const { data } = axios.post("/api/orders", {
+        products: cart,
+        fullName,
+        address,
+        city,
+        total,
+      });
+      setLoading(false);
+      clearCart();
+      router.push(`/order/${data.id}`);
+    } catch (err) {
+      setLoading(false);
+      toast.error(getError(err));
+    }
+  };
+
   return (
-    <div className='mt-4 sm:mt-8  flex flex-col lg:flex-row'>
-      {/**Address form */}
+    <form className='mt-4 sm:mt-8  flex flex-col lg:flex-row'>
+      {/**Address*/}
       <div className='sm:w-full lg:w-2/3'>
-        <form className='bg-white  space-y-4 rounded-md pt-8 pb-12 px-3 sm:px-8 shadow-md'>
+        <div className='bg-white  space-y-4 rounded-md pt-8 pb-12 px-3 sm:px-8 shadow-md'>
           <p className='text-lg font-medium'>Shipping Address</p>
 
           <div>
@@ -99,7 +126,7 @@ function CheckOut() {
               )}
             </div>
           </div>
-        </form>
+        </div>
       </div>
 
       {/**Order summary */}
@@ -158,7 +185,7 @@ function CheckOut() {
           Place Order
         </button>
       </div>
-    </div>
+    </form>
   );
 }
 export default dynamic(() => Promise.resolve(CheckOut), { ssr: false });
