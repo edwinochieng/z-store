@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { getError } from "@/utils/error";
 import axios from "axios";
+import LoadingSpinner from "../LoadingSpinner";
 
 interface AddressInputs {
   fullName: string;
@@ -191,12 +192,16 @@ function CheckOut() {
           <span className='text-base'>${total}</span>
         </div>
 
-        <button
-          type='submit'
-          className='bg-indigo-500 rounded font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full'
-        >
-          Place Order
-        </button>
+        {loading ? (
+          <LoadingSpinner />
+        ) : (
+          <button
+            type='submit'
+            className=' bg-indigo-500 rounded font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full'
+          >
+            Place Order
+          </button>
+        )}
       </div>
     </form>
   );
