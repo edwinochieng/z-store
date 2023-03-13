@@ -32,7 +32,6 @@ function CheckOut() {
   });
 
   const {
-    getValues,
     register,
     handleSubmit,
     formState: { errors },
@@ -43,13 +42,21 @@ function CheckOut() {
   const submitHandler = async ({ fullName, address, city }: AddressInputs) => {
     try {
       setLoading(true);
-      const { data } = axios.post("/api/orders", {
-        products: cart,
-        fullName,
-        address,
-        city,
-        total,
+      const res = await fetch("/api/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          products: cart,
+          fullName,
+          address,
+          city,
+          total,
+        }),
       });
+
+      const data = await res.json();
       setLoading(false);
       clearCart();
       router.push(`/order/${data.id}`);
@@ -60,7 +67,10 @@ function CheckOut() {
   };
 
   return (
-    <form className='mt-4 sm:mt-8  flex flex-col lg:flex-row'>
+    <form
+      className='mt-4 sm:mt-8  flex flex-col lg:flex-row'
+      onSubmit={handleSubmit(submitHandler)}
+    >
       {/**Address*/}
       <div className='sm:w-full lg:w-2/3'>
         <div className='bg-white  space-y-4 rounded-md pt-8 pb-12 px-3 sm:px-8 shadow-md'>
@@ -181,7 +191,10 @@ function CheckOut() {
           <span className='text-base'>${total}</span>
         </div>
 
-        <button className='bg-indigo-500 rounded font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full'>
+        <button
+          type='submit'
+          className='bg-indigo-500 rounded font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full'
+        >
           Place Order
         </button>
       </div>
