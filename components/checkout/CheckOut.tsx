@@ -9,7 +9,6 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { getError } from "@/utils/error";
-import axios from "axios";
 import LoadingSpinner from "../LoadingSpinner";
 
 interface AddressInputs {
@@ -49,7 +48,7 @@ function CheckOut() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          products: cart,
+          cart,
           fullName,
           address,
           city,
@@ -59,8 +58,8 @@ function CheckOut() {
 
       const data = await res.json();
       setLoading(false);
-      clearCart();
       router.push(`/order/${data.id}`);
+      clearCart();
     } catch (err) {
       setLoading(false);
       toast.error(getError(err));
