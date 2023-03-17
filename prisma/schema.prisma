@@ -19,7 +19,6 @@ model Product {
   image       String
   category    String
   description String
-  quantity    Int?
   orderItems  OrderItem[]
 }
 
@@ -29,6 +28,7 @@ model OrderItem {
   productId String
   order     Order   @relation(fields: [orderId], references: [id])
   orderId   String
+  quantity  Int
 }
 
 model Order {
