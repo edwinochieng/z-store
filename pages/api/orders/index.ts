@@ -31,13 +31,13 @@ export default async function handler(
     });
 
     for (const item of cart) {
-      const { id } = item;
-      console.log(id);
+      const { id, quantity } = item;
 
       await prisma.orderItem.create({
         data: {
           productId: id,
           orderId: newOrder.id,
+          quantity,
         },
       });
     }
