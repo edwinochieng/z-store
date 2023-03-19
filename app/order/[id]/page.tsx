@@ -1,3 +1,4 @@
+import OrderDetails from "@/components/checkout/OrderDetails";
 import React from "react";
 
 const getOrder = async (id: string) => {
@@ -17,5 +18,10 @@ export default async function OrderPage({
   params: { id: string };
 }) {
   const data = await getOrder(params.id);
-  return <div>OrderPage</div>;
+  console.log(data);
+  return (
+    <div>
+      <OrderDetails />
+    </div>
+  );
 }
