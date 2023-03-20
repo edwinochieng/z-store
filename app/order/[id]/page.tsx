@@ -18,10 +18,10 @@ export default async function OrderPage({
   params: { id: string };
 }) {
   const data = await getOrder(params.id);
-  console.log(data);
+
   return (
     <div>
-      <OrderDetails />
+      <OrderDetails order={data} />
     </div>
   );
 }
