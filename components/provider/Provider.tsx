@@ -6,19 +6,17 @@ import { Toaster } from "react-hot-toast";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 const initialOptions = {
-  "client-id": process.env.PAYPAL_CLIENT_ID as string,
+  "client-id": process.env.PAYPAL_CLIENT_ID,
   currency: "USD",
 };
 
 export default function Provider({ children }: { children: React.ReactNode }) {
   return (
-    <>
+    <PayPalScriptProvider options={initialOptions} deferLoading={true}>
       <SessionProvider>
         <Toaster position='top-center' />
-        <PayPalScriptProvider options={initialOptions} deferLoading={true}>    
-          {children}
-        </PayPalScriptProvider>
+        {children}
       </SessionProvider>
-    </>
+    </PayPalScriptProvider>
   );
 }
