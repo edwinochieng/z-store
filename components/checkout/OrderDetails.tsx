@@ -1,6 +1,15 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
+import {
+  PayPalButtons,
+  PayPalScriptProvider,
+  usePayPalScriptReducer,
+} from "@paypal/react-paypal-js";
+import LoadingSpinner from "../LoadingSpinner";
+import { getError } from "@/utils/error";
+import { toast } from "react-hot-toast";
+import axios from "axios";
 
 type Items = {
   id: string;
@@ -29,9 +38,56 @@ interface OrderDetails {
 export default function OrderDetails({ order }: OrderDetails) {
   const { id, fullName, address, city, total, status, updatedAt, items } =
     order;
+  const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
+
+  useEffect(() => {
+    const loadPaypalScript = async () => {
+      const clientId = process.env.PAYPAL_CLIENT_ID;
+      paypalDispatch({
+        type: "resetOptions",
+        value: {
+          "client-id": clientId,
+          currency: "USD",
+        },
+      });
+    };
+    paypalDispatch({ type: "setLoadingStatus", value: "pending" });
+    loadPaypalScript();
+  }, [paypalDispatch]);
+
+  const createOrder = (data: any, actions: any) => {
+    return actions.order.create({
+      purchase_units: [
+        {
+          amount: {
+            value: { total },
+          },
+        },
+      ],
+    });
+  };
+
+  const onApprove = (data: any, actions: any) => {
+    return actions.order.capture().then(async function (details: any) {
+      try {
+        const { data } = await axios.put(
+          `/api/orders/${order.id}/pay`,
+          details
+        );
+        toast.success("Order paid successfully");
+      } catch (err) {
+        throw new Error(getError(err));
+      }
+    });
+  };
+
+  const onError = (err: any) => {
+    toast.error(getError(err));
+  };
+
   return (
     <div className='max-w-screen-xl w-full mx-auto '>
-      <h1 className='font-semibold text-[22px] py-4'>Order {id}</h1>
+      <h1 className='font-medium text-[18px] py-4'>Order {id}</h1>
       <div className='grid md:grid-cols-2 gap-5'>
         <div className='w-full'>
           <div className=' rounded-md shadow-md mt-4 p-3'>
@@ -54,9 +110,9 @@ export default function OrderDetails({ order }: OrderDetails) {
               </div>
             )}
           </div>
-          <div className=' rounded-md shadow-md mt-6 p-3'>
+          <div className='w-full rounded-md shadow-md mt-6 p-3'>
             <h1 className='font-semibold text-lg py-2'>Order Items</h1>
-            <table className='min-w-full'>
+            <table className='w-full'>
               <thead>
                 <tr>
                   <th className='text-left'>Item</th>
@@ -90,6 +146,31 @@ export default function OrderDetails({ order }: OrderDetails) {
               </tbody>
             </table>
           </div>
+        </div>
+        {/**Order Summary */}
+
+        <div>
+          <ul>
+            <li className='flex justify-between'>
+              <div>Total</div>
+              <div>{total}</div>
+            </li>
+            {status === "NotPaid" && (
+              <li>
+                {isPending ? (
+                  <LoadingSpinner />
+                ) : (
+                  <div className='w-full'>
+                    <PayPalButtons
+                      createOrder={createOrder}
+                      onApprove={onApprove}
+                      onError={onError}
+                    ></PayPalButtons>
+                  </div>
+                )}
+              </li>
+            )}
+          </ul>
         </div>
       </div>
     </div>
