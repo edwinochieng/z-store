@@ -8,8 +8,8 @@ export default function LoadingSpinner() {
     <div className='bg-white'>
       <div className='flex justify-center items-center'>
         <Image
-          height={22}
-          width={22}
+          height={24}
+          width={24}
           src='https://icons8.com/preloaders/preloaders/1488/Iphone-spinner-2.gif'
           alt='loading'
         />
