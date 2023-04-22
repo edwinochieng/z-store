@@ -1,15 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect } from "react";
-import {
-  PayPalButtons,
-  PayPalScriptProvider,
-  usePayPalScriptReducer,
-} from "@paypal/react-paypal-js";
-import LoadingSpinner from "../LoadingSpinner";
-import { getError } from "@/utils/error";
-import { toast } from "react-hot-toast";
-import axios from "axios";
+import React from "react";
 
 type Items = {
   id: string;
@@ -38,52 +29,6 @@ interface OrderDetails {
 export default function OrderDetails({ order }: OrderDetails) {
   const { id, fullName, address, city, total, status, updatedAt, items } =
     order;
-  const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
-
-  useEffect(() => {
-    const loadPaypalScript = async () => {
-      const clientId = process.env.PAYPAL_CLIENT_ID;
-      paypalDispatch({
-        type: "resetOptions",
-        value: {
-          "client-id": clientId,
-          currency: "USD",
-        },
-      });
-    };
-    paypalDispatch({ type: "setLoadingStatus", value: "pending" });
-    loadPaypalScript();
-  }, [paypalDispatch]);
-
-  const createOrder = (data: any, actions: any) => {
-    return actions.order.create({
-      purchase_units: [
-        {
-          amount: {
-            value: { total },
-          },
-        },
-      ],
-    });
-  };
-
-  const onApprove = (data: any, actions: any) => {
-    return actions.order.capture().then(async function (details: any) {
-      try {
-        const { data } = await axios.put(
-          `/api/orders/${order.id}/pay`,
-          details
-        );
-        toast.success("Order paid successfully");
-      } catch (err) {
-        throw new Error(getError(err));
-      }
-    });
-  };
-
-  const onError = (err: any) => {
-    toast.error(getError(err));
-  };
 
   return (
     <div className='max-w-screen-xl w-full mx-auto '>
@@ -155,21 +100,6 @@ export default function OrderDetails({ order }: OrderDetails) {
               <div>Total</div>
               <div>{total}</div>
             </li>
-            {status === "NotPaid" && (
-              <li>
-                {isPending ? (
-                  <LoadingSpinner />
-                ) : (
-                  <div className='w-full'>
-                    <PayPalButtons
-                      createOrder={createOrder}
-                      onApprove={onApprove}
-                      onError={onError}
-                    ></PayPalButtons>
-                  </div>
-                )}
-              </li>
-            )}
           </ul>
         </div>
       </div>
