@@ -16,12 +16,8 @@ export default async function Home() {
 
   return (
     <div>
-      <div>
-        <Banner />
-      </div>
-      <div>
-        <ProductsList data={data} />
-      </div>
+      <Banner />
+      <ProductsList data={data} />
     </div>
   );
 }
