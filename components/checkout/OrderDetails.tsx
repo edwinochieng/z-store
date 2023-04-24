@@ -94,10 +94,10 @@ export default function OrderDetails({ order }: OrderDetails) {
         </div>
         {/**Order Summary */}
 
-        <div>
+        <div className='rounded-md shadow-lg h-[90px] mt-4 p-3'>
           <ul>
-            <li className='flex justify-between'>
-              <div>Total</div>
+            <li className='flex justify-between font-semibold text-lg text-gray-700'>
+              <div>Total:</div>
               <div>{total}</div>
             </li>
           </ul>
