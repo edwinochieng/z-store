@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export const Categories = () => (
   <DropdownMenu.Root>
-    <DropdownMenu.Trigger className='outline-none font-medium text-base hover:text-gray-400'>
+    <DropdownMenu.Trigger className='outline-none font-semibold text-[17px] text-gray-800 hover:text-gray-600'>
       Categories
     </DropdownMenu.Trigger>
     <DropdownMenu.Portal>

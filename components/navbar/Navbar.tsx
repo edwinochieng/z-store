@@ -22,7 +22,7 @@ export default function Navbar() {
   return (
     <div className='bg-transparent'>
       <div className='flex justify-between w-full py-3 z-10'>
-        <div className='flex items-center'>
+        <div className='flex items-end'>
           <Link href='/'>
             <h1 className='font-bold text-xl'>Z-Store</h1>
           </Link>
@@ -30,7 +30,7 @@ export default function Navbar() {
             <Categories />
           </div>
         </div>
-        <div className='flex items-center'>
+        <div className='flex items-end'>
           {status === "loading" ? (
             <LoadingSpinner />
           ) : session?.user ? (
