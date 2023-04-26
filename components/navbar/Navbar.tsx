@@ -46,7 +46,7 @@ export default function Navbar() {
               </span>
 
               {cartItemsCount > 0 && (
-                <sup className=' bg-red-500 rounded-full h-[17px] py-[1px] px-[5px] text-white text-xs font-semibold'>
+                <sup className=' bg-red-500 rounded-full h-[17px] px-[6px] text-white text-xs text-center font-semibold'>
                   {cartItemsCount}
                 </sup>
               )}
