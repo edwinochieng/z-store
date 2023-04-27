@@ -68,11 +68,11 @@ function CheckOut() {
 
   return (
     <form
-      className='mt-4 sm:mt-8  flex flex-col lg:flex-row'
+      className='mt-4 sm:mt-8  flex flex-col xl:flex-row'
       onSubmit={handleSubmit(submitHandler)}
     >
       {/**Address*/}
-      <div className='sm:w-full lg:w-2/3'>
+      <div className='sm:w-full xl:w-2/3'>
         <div className='bg-white  space-y-4 rounded-md pt-8 pb-12 px-3 sm:px-8 shadow-md'>
           <p className='text-lg font-medium'>Shipping Address</p>
 
@@ -141,7 +141,7 @@ function CheckOut() {
 
       {/**Order summary */}
 
-      <div className='w-full lg:w-1/2 mt-6 lg:mt-0 rounded-md bg-white shadow-md px-3 py-4'>
+      <div className='w-full xl:w-1/2 mt-6 xl:mt-0 rounded-md bg-white shadow-md px-3 py-4'>
         <div className='flex justify-between border-b pt-1 pb-4'>
           <h1 className='font-semibold text-lg'>Order Items</h1>
           <h2 className='font-semibold text-lg'>
