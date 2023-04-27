@@ -33,7 +33,7 @@ function Cart() {
   }
 
   return (
-    <div className='mt-6 max-w-sm sm:max-w-[700px] w-full mx-auto'>
+    <div className='mt-6 max-w-screen-sm md:max-w-[700px] w-full mx-auto'>
       <div className=' rounded-md bg-white shadow-md px-3 py-4'>
         <div className='flex justify-between border-b pt-3 pb-5'>
           <h1 className='font-semibold text-lg'>Shopping Cart</h1>
