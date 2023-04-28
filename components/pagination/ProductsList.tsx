@@ -37,7 +37,7 @@ export default function ProductsList({ data }: Data) {
   return (
     <div id='products'>
       <div className='flex flex-col items-center'>
-        <h1 className='font-bold text-2xl text-gray-800 pt-4 lg:pt-6 pb-2'>
+        <h1 className='font-bold text-xl text-gray-800 pt-4 lg:pt-6 pb-2'>
           Featured Products
         </h1>
         <div className='pt-2 flex flex-wrap gap-3 justify-center'>
